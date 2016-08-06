@@ -51,6 +51,11 @@
     return NUMBOOL([SPTAuth supportsApplicationAuthentication]);
 }
 
+- (NSNumber*)canHandleURL:(id)value
+{
+    return NUMBOOL([[SPTAuth defaultInstance] canHandleURL:[NSURL URLWithString:[TiUtils stringValue:value]]]);
+}
+
 MAKE_SYSTEM_STR(AUTH_STREAMING_SCOPE, SPTAuthStreamingScope);
 MAKE_SYSTEM_STR(AUTH_PLAYLIST_READ_PRIVATE_SCOPE, SPTAuthPlaylistReadPrivateScope);
 MAKE_SYSTEM_STR(AUTH_PLAYLIST_MODIFY_PUBLIC_SCOPE, SPTAuthPlaylistModifyPublicScope);
