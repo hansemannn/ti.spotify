@@ -8,6 +8,8 @@
 #import "TiModule.h"
 #import <Spotify/Spotify.h>
 
+NSString* const kTiSpotifyNotification = @"TiSpotifyNotification";
+
 @interface TiSpotifyModule : TiModule
 
 - (void)initialize:(id)args;
