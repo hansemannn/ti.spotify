@@ -5,7 +5,7 @@
  * Please see the LICENSE included with this distribution for details.
  */
 #import "TiUIView.h"
-#import <Spotify/Spotify.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
 
 @interface TiSpotifyConnectButton : TiUIView {
     SPTConnectButton *button;

@@ -18,20 +18,20 @@
 - (SPTConnectButton*)button
 {
     if (!button) {
-        button = [[SPTConnectButton alloc] initWithFrame:[self bounds]];
+        button = [[[SPTConnectButton alloc] init] retain];
+        [self setFrame:[button frame]];
         [self addSubview:button];
     }
     
     return button;
 }
 
-- (void)frameSizeChanged:(CGRect)frame bounds:(CGRect)bounds
+
+- (IBAction)didTouchUpInside:(id)sender
 {
-    for (UIView *subview in [self subviews]) {
-        [subview setFrame:frame];
+    if ([[self proxy] _hasListeners:@"click"]) {
+        [[self proxy] fireEvent:@"click" withObject:nil];
     }
-    
-    [super frameSizeChanged:frame bounds:bounds];
 }
 
 -(BOOL)hasTouchableListener

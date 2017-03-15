@@ -5,16 +5,22 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
+#import "TiSpotifyConnectButton.h"
 #import "TiSpotifyConnectButtonProxy.h"
 #import "TiUtils.h"
 
 @implementation TiSpotifyConnectButtonProxy
 
+-(void)viewDidAttach
+{
+    [(TiSpotifyConnectButton*)[self view] button];
+}
+
 #pragma mark Layout Helper
 
 -(UIViewAutoresizing)verifyAutoresizing:(UIViewAutoresizing)suggestedResizing
 {
-    return suggestedResizing & ~(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+    return suggestedResizing & ~(UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
 }
 
 USE_VIEW_FOR_VERIFY_HEIGHT

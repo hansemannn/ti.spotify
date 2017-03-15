@@ -10,6 +10,8 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 #import "TiApp.h"
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 
 @interface TiApp (TiSpotifyApp)
 
@@ -65,7 +67,7 @@
 
 #pragma mark Private APIs
 
-- (void)handleAuthCallback:(NSNotification*)notification
+- (void)handleAuthCallback:(NSNotification *)notification
 {
     if ([notification name] != kTiSpotifyNotification) {
         NSLog(@"Received unknown notification: %@ with object: %@", [notification name], [notification object]);
@@ -82,31 +84,18 @@
             @"error": [error localizedDescription]
         }];
     } else {
-        [SPTUser requestUser:[session canonicalUsername] withAccessToken:[session accessToken] callback:^(NSError *error, id object) {
-            [self fireEvent:@"login" withObject:@{
-                @"success": NUMBOOL(YES),
-                @"user": [self dictionaryFromUser:(SPTUser*)object]
-            }];
+        [self fireEvent:@"login" withObject:@{
+            @"success": NUMBOOL(YES),
+            @"user": [self dictionaryFromUserSession:session]
         }];
     }
 }
 
-- (NSDictionary*)dictionaryFromUser:(SPTUser*)user
+- (NSDictionary *)dictionaryFromUserSession:(SPTSession *)userSession
 {
-    // TODO: Handle nil-values for non-granted permissions
     return @{
-        @"displayName": [user displayName],
-        @"canonicalUserName": [user canonicalUserName],
-        @"emailAddress": [user emailAddress],
-        @"territory": [user territory],
-        @"uri": [user uri],
-        @"sharingURL": [user sharingURL],
-        @"image": @{
-            @"smallest": [[[user smallestImage] imageURL] absoluteString],
-            @"largest": [[[user largestImage] imageURL] absoluteString],
-        },
-        @"product": NUMINTEGER([user product]),
-        @"followerCount": NUMLONG([user followerCount])
+        @"canonicalUserName": [userSession canonicalUsername],
+        @"accessToken": [userSession accessToken]
     };
 }
 
@@ -129,7 +118,21 @@
 
 - (void)authorize
 {
-    [[UIApplication sharedApplication] openURL:[[SPTAuth defaultInstance] loginURL]];
+    NSURL *loginURL = [SPTAuth loginURLForClientId:[[SPTAuth defaultInstance] clientID]
+                                  withRedirectURL:[[SPTAuth defaultInstance] redirectURL]
+                                           scopes:[[SPTAuth defaultInstance] requestedScopes]
+                                     responseType:@"code"];
+    
+    if ([SPTAuth supportsApplicationAuthentication]) {
+        [[UIApplication sharedApplication] openURL:loginURL];
+    } else {
+        // TODO: Only create once and access instance instamce
+        SFSafariViewController *safari = [[SFSafariViewController alloc] initWithURL:[[SPTAuth defaultInstance] spotifyWebAuthenticationURL]];
+        safari.delegate = self;
+        safari.modalPresentationStyle = UIModalPresentationPageSheet;
+
+        [[TiApp app] showModalController:safari animated:YES];
+    }
 }
 
 - (NSNumber*)spotifyApplicationIsInstalled
@@ -147,6 +150,15 @@
     return NUMBOOL([[SPTAuth defaultInstance] canHandleURL:[NSURL URLWithString:[TiUtils stringValue:value]]]);
 }
 
+#pragma mark Delegates
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
+{
+    if ([self _hasListeners:@"login"]) {
+        [self fireEvent:@"login" withObject:@{@"cancel": NUMBOOL(YES), @"success": NUMBOOL(NO)}];
+    }
+}
+
 MAKE_SYSTEM_STR(AUTH_STREAMING_SCOPE, SPTAuthStreamingScope);
 MAKE_SYSTEM_STR(AUTH_PLAYLIST_READ_PRIVATE_SCOPE, SPTAuthPlaylistReadPrivateScope);
 MAKE_SYSTEM_STR(AUTH_PLAYLIST_MODIFY_PUBLIC_SCOPE, SPTAuthPlaylistModifyPublicScope);
@@ -158,10 +170,5 @@ MAKE_SYSTEM_STR(AUTH_USER_LIBRARY_MODIFY_SCOPE, SPTAuthUserLibraryModifyScope);
 MAKE_SYSTEM_STR(AUTH_USER_READ_PRIVATE_SCOPE, SPTAuthUserReadPrivateScope);
 MAKE_SYSTEM_STR(AUTH_USER_READ_BIRTH_DATE_SCOPE, SPTAuthUserReadBirthDateScope);
 MAKE_SYSTEM_STR(AUTH_USER_READ_EMAIL_SCOPE, SPTAuthUserReadEmailScope);
-
-MAKE_SYSTEM_PROP(PRODUCT_TYPE_FREE, SPTProductFree);
-MAKE_SYSTEM_PROP(PRODUCT_TYPE_UNLIMITED, SPTProductUnlimited);
-MAKE_SYSTEM_PROP(PRODUCT_TYPE_PREMIUM, SPTProductPremium);
-MAKE_SYSTEM_PROP(PRODUCT_TYPE_UNKNOWN, SPTProductUnknown);
 
 @end

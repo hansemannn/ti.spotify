@@ -7,12 +7,12 @@ apiversion: 2
 architectures: armv7 arm64 i386 x86_64
 description: ti.spotify
 author: Hans Knoechel
-license: Specify your license
-copyright: Copyright (c) 2016 by Your Company
+license: Apache 2
+copyright: Copyright (c) 2016-Present by Hans Knoechel
 
 # these should not be edited
 name: ti.spotify
 moduleid: ti.spotify
 guid: 374c1666-e935-4867-ad06-388c2ed57953
 platform: iphone
-minsdk: 5.4.0
+minsdk: 6.0.0

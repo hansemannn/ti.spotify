@@ -26,13 +26,18 @@
 		24DD6CFA1134B3F500162E58 /* TiSpotifyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiSpotifyModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* TiSpotifyModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiSpotifyModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* TiSpotifyModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiSpotifyModuleAssets.m */; };
-		3A453E941D5201AE00A4435A /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A453E931D5201AE00A4435A /* Spotify.framework */; };
 		3A453E971D5201FC00A4435A /* TiSpotifyConnectButtonProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A453E951D5201FC00A4435A /* TiSpotifyConnectButtonProxy.h */; };
 		3A453E981D5201FC00A4435A /* TiSpotifyConnectButtonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A453E961D5201FC00A4435A /* TiSpotifyConnectButtonProxy.m */; };
 		3A453E9B1D52020B00A4435A /* TiSpotifyConnectButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A453E991D52020B00A4435A /* TiSpotifyConnectButton.h */; };
 		3A453E9C1D52020B00A4435A /* TiSpotifyConnectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A453E9A1D52020B00A4435A /* TiSpotifyConnectButton.m */; };
 		AA747D9F0F9514B9006C5449 /* TiSpotify_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiSpotify_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DB4346B91E7979B700ABA1A0 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4346B61E7979B700ABA1A0 /* SpotifyAudioPlayback.framework */; };
+		DB4346BA1E7979B700ABA1A0 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4346B71E7979B700ABA1A0 /* SpotifyAuthentication.framework */; };
+		DB4346BD1E797EB900ABA1A0 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4346BC1E797EB900ABA1A0 /* SafariServices.framework */; };
+		DB4346BF1E797EBE00ABA1A0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4346BE1E797EBE00ABA1A0 /* AVFoundation.framework */; };
+		DB4346C21E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DB4346C01E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.h */; };
+		DB4346C31E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4346C11E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +56,6 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* TiSpotifyModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiSpotifyModuleAssets.h; path = Classes/TiSpotifyModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiSpotifyModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiSpotifyModuleAssets.m; path = Classes/TiSpotifyModuleAssets.m; sourceTree = "<group>"; };
-		3A453E931D5201AE00A4435A /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = platform/ios/Spotify.framework; sourceTree = "<group>"; };
 		3A453E951D5201FC00A4435A /* TiSpotifyConnectButtonProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiSpotifyConnectButtonProxy.h; path = Classes/TiSpotifyConnectButtonProxy.h; sourceTree = "<group>"; };
 		3A453E961D5201FC00A4435A /* TiSpotifyConnectButtonProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiSpotifyConnectButtonProxy.m; path = Classes/TiSpotifyConnectButtonProxy.m; sourceTree = "<group>"; };
 		3A453E991D52020B00A4435A /* TiSpotifyConnectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiSpotifyConnectButton.h; path = Classes/TiSpotifyConnectButton.h; sourceTree = "<group>"; };
@@ -59,6 +63,12 @@
 		AA747D9E0F9514B9006C5449 /* TiSpotify_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiSpotify_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiSpotify.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiSpotify.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB4346B61E7979B700ABA1A0 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = platform/SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		DB4346B71E7979B700ABA1A0 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = platform/SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		DB4346BC1E797EB900ABA1A0 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		DB4346BE1E797EBE00ABA1A0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DB4346C01E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiSpotifyPlayerProxy.h; path = Classes/TiSpotifyPlayerProxy.h; sourceTree = "<group>"; };
+		DB4346C11E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiSpotifyPlayerProxy.m; path = Classes/TiSpotifyPlayerProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +76,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4346BF1E797EBE00ABA1A0 /* AVFoundation.framework in Frameworks */,
+				DB4346BD1E797EB900ABA1A0 /* SafariServices.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				3A453E941D5201AE00A4435A /* Spotify.framework in Frameworks */,
+				DB4346BA1E7979B700ABA1A0 /* SpotifyAuthentication.framework in Frameworks */,
+				DB4346B91E7979B700ABA1A0 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +109,10 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A453E931D5201AE00A4435A /* Spotify.framework */,
+				DB4346BE1E797EBE00ABA1A0 /* AVFoundation.framework */,
+				DB4346BC1E797EB900ABA1A0 /* SafariServices.framework */,
+				DB4346B61E7979B700ABA1A0 /* SpotifyAudioPlayback.framework */,
+				DB4346B71E7979B700ABA1A0 /* SpotifyAuthentication.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -109,6 +125,7 @@
 				24DE9E1011C5FE74003F90F6 /* TiSpotifyModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiSpotifyModule.h */,
 				24DD6CF81134B3F500162E58 /* TiSpotifyModule.m */,
+				DB4346C41E797F2500ABA1A0 /* Player */,
 				3A453E9D1D52020F00A4435A /* Connect Button */,
 			);
 			name = Classes;
@@ -134,6 +151,15 @@
 			name = "Connect Button";
 			sourceTree = "<group>";
 		};
+		DB4346C41E797F2500ABA1A0 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				DB4346C01E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.h */,
+				DB4346C11E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -141,6 +167,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4346C21E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.h in Headers */,
 				3A453E9B1D52020B00A4435A /* TiSpotifyConnectButton.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* TiSpotify_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* TiSpotifyModule.h in Headers */,
@@ -222,6 +249,7 @@
 				3A453E9C1D52020B00A4435A /* TiSpotifyConnectButton.m in Sources */,
 				3A453E981D5201FC00A4435A /* TiSpotifyConnectButtonProxy.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* TiSpotifyModule.m in Sources */,
+				DB4346C31E797F1E00ABA1A0 /* TiSpotifyPlayerProxy.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiSpotifyModuleAssets.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +275,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/platform/ios",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -289,6 +318,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/platform/ios",
+					"$(PROJECT_DIR)/platform",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;

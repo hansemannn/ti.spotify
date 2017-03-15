@@ -6,11 +6,11 @@
  */
 
 #import "TiModule.h"
-#import <Spotify/Spotify.h>
+#import <SafariServices/SafariServices.h>
 
 NSString* const kTiSpotifyNotification = @"TiSpotifyNotification";
 
-@interface TiSpotifyModule : TiModule
+@interface TiSpotifyModule : TiModule <SFSafariViewControllerDelegate>
 
 - (void)initialize:(id)args;
 
